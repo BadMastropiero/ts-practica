@@ -84,36 +84,89 @@
 
 // type Fn = (a: number, b: number) => number;
 
-class Empleado {
-  nombre: string;
-  private salario: number;
+// class Empleado {
+//   nombre: string;
+//   private salario: number;
 
-  constructor(nombre: string, salario: number) {
-    this.nombre = nombre;
-    this.salario = salario;
-  }
+//   constructor(nombre: string, salario: number) {
+//     this.nombre = nombre;
+//     this.salario = salario;
+//   }
 
-  public obtenerSalario(): number {
-    return this.salario;
+//   public obtenerSalario(): number {
+//     return this.salario;
+//   }
+// }
+
+// class Manager extends Empleado {
+//   private subordinados: Empleado[] = [];
+
+//   constructor(nombre: string, salario: number) {
+//     super(nombre, salario);
+//   }
+
+//   public agregarSubordinado(subordinado: Empleado) {
+//     this.subordinados.push(subordinado);
+//   }
+
+//   public obtenerSubordinados(): Empleado[] {
+//     return this.subordinados;
+//   }
+// }
+
+// const manager = new Manager("Juan", 1000);
+
+// console.log(manager.nombre);
+
+// Union Type
+// type TextoONumero = string | number;
+
+// Intersection Type
+// type Admin = {
+//   nombre: string;
+//   permisos: string[];
+// }
+
+// type Usuario = {
+//   nombre: string;
+//   proyectos: string[];
+// }
+
+// type UsuarioAdmin = Admin & Usuario;
+
+// function identidad<T>(valor: T): T {
+//   return valor;
+// }
+
+// const numero = identidad<number>(5);
+// const texto = identidad<string>("Hola");
+// const booleano = identidad<boolean>(true);
+
+// interface Caja<T> {
+//   contenido: T;
+//   abrir: () => T;
+//   cerrar?: () => void;
+// }
+
+// const cajaNumero: Caja<number> = {
+//   contenido: 5,
+//   abrir: () => 123,
+// };
+
+// const cajaTexto: Caja<string> = {
+//   contenido: "Hola",
+//   abrir: () => "Hola",
+// };
+
+function logContructor(constructor: Function) {
+  console.log("Constructor:", constructor);
+}
+
+@logContructor
+class EjemploConDecorador {
+  constructor() {
+    console.log("EjemploConDecorador creado");
   }
 }
 
-class Manager extends Empleado {
-  private subordinados: Empleado[] = [];
-
-  constructor(nombre: string, salario: number) {
-    super(nombre, salario);
-  }
-
-  public agregarSubordinado(subordinado: Empleado) {
-    this.subordinados.push(subordinado);
-  }
-
-  public obtenerSubordinados(): Empleado[] {
-    return this.subordinados;
-  }
-}
-
-const manager = new Manager("Juan", 1000);
-
-console.log(manager.nombre);
+const instancia = new EjemploConDecorador();
